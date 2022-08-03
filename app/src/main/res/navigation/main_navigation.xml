@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_navigation"
+    app:startDestination="@id/main">
+
+    <fragment
+        android:id="@+id/main"
+        android:name="com.example.weatherru.features.main.view.MainFragment"
+        android:label="MainFragment"
+        tools:layout="@layout/fragment_main">
+
+        <action
+            android:id="@+id/action_main_to_forecast_details"
+            app:destination="@id/forecast_details">
+
+            <argument
+                android:name="item"
+                app:argType="com.example.weatherru.features.main.data.item.CitiesListItem" />
+        </action>
+    </fragment>
+
+    <fragment
+        android:id="@+id/forecast_details"
+        android:name="com.example.weatherru.features.forecastdetails.view.ForecastDetailsFragment"
+        android:label="fragment_forecast_details"
+        tools:layout="@layout/fragment_forecast_details">
+
+        <argument
+            android:name="item"
+            app:argType="com.example.weatherru.features.main.data.item.CitiesListItem" />
+    </fragment>
+</navigation>
